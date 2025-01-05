@@ -1,0 +1,175 @@
+:root {
+  --primary-color: #3498db;
+  --secondary-color: #2ecc71;
+  --text-dark: #2c3e50;
+  --text-light: #7f8c8d;
+  --background-light: #f4f6f9;
+  --white: #ffffff;
+  --error-color: #e74c3c;
+  --transition-speed: 0.3s;
+}
+
+body {
+  background-color: var(--background-light);
+  font-family: 'Inter', 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  line-height: 1.6;
+}
+
+.contact-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 2rem;
+}
+
+.contact-title {
+  margin-top: 20px;
+  font-size: 2.8rem;
+  font-weight: 800;
+  color: var(--text-dark);
+  text-align: center;
+  margin-bottom: 1rem;
+  position: relative;
+  letter-spacing: -1.5px;
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: black;
+}
+
+.contact-title::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 4px;
+  background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+  border-radius: 2px;
+}
+
+.contact-subtitle {
+  font-size: 1.2rem;
+  font-weight: 400;
+  color: var(--text-light);
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto 2.5rem;
+  line-height: 1.7;
+}
+
+form {
+  margin-left: 210px;
+  width: 100%;
+  max-width: 700px;
+  background-color: var(--white);
+  padding: 4rem;
+  border-radius: 16px;
+  box-shadow: 
+    0 20px 40px rgba(0, 0, 0, 0.08),
+    0 10px 20px rgba(0, 0, 0, 0.05);
+  transition: all var(--transition-speed) ease;
+  position: relative;
+  overflow: hidden;
+}
+
+form::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 6px;
+  background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+}
+
+form:hover {
+  transform: translateY(-10px);
+  box-shadow: 
+    0 30px 50px rgba(0, 0, 0, 0.1),
+    0 15px 30px rgba(0, 0, 0, 0.08);
+}
+
+input, textarea {
+  width: 100%;
+  padding: 15px 20px;
+  margin-bottom: 25px;
+  border: 2px solid #e8ecf4;
+  border-radius: 10px;
+  font-size: 16px;
+  transition: all var(--transition-speed) ease;
+  background-color: #f9fafb;
+}
+
+input:focus, textarea:focus {
+  border-color: var(--primary-color);
+  background-color: var(--white);
+  box-shadow: 0 0 0 4px rgba(52, 152, 219, 0.1);
+  outline: none;
+}
+
+textarea {
+  min-height: 180px;
+  resize: vertical;
+}
+
+button {
+  width: 100%;
+  padding: 18px;
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  color: var(--white);
+  border: none;
+  border-radius: 10px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition-speed) ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(52, 152, 219, 0.2);
+}
+
+button:disabled {
+  background: linear-gradient(135deg, #a0a0a0, #c0c0c0);
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.error input, .error textarea {
+  border-color: var(--error-color);
+}
+
+div[ngClass*='error'] p {
+  color: var(--error-color);
+  font-size: 14px;
+  margin-top: -15px;
+  margin-bottom: 15px;
+  animation: fadeIn var(--transition-speed) ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 768px) {
+  .contact-title {
+    font-size: 2.2rem;
+  }
+
+  .contact-subtitle {
+    font-size: 1rem;
+  }
+
+  form {
+    padding: 2rem;
+    margin: 0;
+  }
+}

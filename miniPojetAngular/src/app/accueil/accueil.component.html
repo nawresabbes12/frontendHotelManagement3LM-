@@ -1,0 +1,104 @@
+<div class="background-slideshow">
+  <div 
+    class="slide" 
+    *ngFor="let slide of slides; let i = index"
+    [ngClass]="{ active: i === currentSlide }"
+    [style.backgroundImage]="'url(' + slide.image + ')'"
+  >
+    <div class="slide-overlay">
+      <h2>{{ slide.title }}</h2>
+    </div>
+  </div>
+</div>
+
+<!-- Welcome Section -->
+<div class="welcome-container">
+  <div class="welcome-message">
+    <h1>Discover Luxury</h1>
+    <p>Where Comfort Meets Elegance</p>
+    <div class="cta-buttons">
+      <a [routerLink]="['/login']" class="login-link">Book Now</a>
+      <a [routerLink]="['/login']" class="explore-link">Explore Rooms</a>
+    </div>
+  </div>
+</div>
+
+<!-- About Us Section -->
+<section class="about-us">
+  <div class="section-header">
+    <h1 style="font-size: 50px ;"> <b>About Our Hotel</b></h1>
+    <h2 style="font-size: 18px;">A Legacy of Luxury and Exceptional Hospitality</h2>
+  </div>
+  <div class="about-content">
+    <div class="about-text">
+      <p>
+        Nestled in the heart of [City], our hotel represents the pinnacle of luxury hospitality. 
+        With decades of experience, we pride ourselves on creating unforgettable experiences 
+        that go beyond mere accommodation.
+      </p>
+      <p>
+        Our commitment to excellence is reflected in every detail, from our meticulously 
+        designed rooms to our personalized service that anticipates your every need.
+      </p>
+    </div>
+    <div class="about-images">
+      <img src="https://t3.ftcdn.net/jpg/00/98/99/72/360_F_98997233_oewnhm96CdIINUw1ehpgZIE3PjfyboAG.jpg" alt="Hotel Exterior">
+      <img src="https://media.istockphoto.com/id/1418784247/fr/photo/hall-de-lh%C3%B4tel-de-luxe.jpg?s=612x612&w=0&k=20&c=xZOpiZDElLlB4zX_HcrpCt9XX6dmFHLRprk0AZjh_js=" alt="Hotel Lobby">
+    </div>
+  </div>
+</section>
+
+<!-- Services Section -->
+<section class="our-services">
+  <div class="section-header">
+    <h1 style="font-size: 50px ; text-align: center ; "><b>Our Services</b></h1>
+    <h2 style="font-size: 18px ; text-align: center ;">Elevating Your Stay with Exceptional Amenities</h2>
+  </div>
+  <div class="services-grid">
+    <div class="service-card" *ngFor="let service of services">
+      <div class="service-icon">
+        <i class="{{ service.icon }}"></i>
+      </div>
+      <h3>{{ service.title }}</h3>
+      <p>{{ service.description }}</p>
+    </div>
+  </div>
+</section>
+
+<!-- Feedback Section -->
+<section class="guest-feedback">
+  <div class="section-header">
+    <h1 style="font-size: 50px ; text-align: center ; "><b>Guest Experiences</b></h1>
+    <h2 style="font-size: 18px ; text-align: center ; ">What Our Guests Say About Us</h2>
+  </div>
+  <div class="feedback-carousel">
+    <div 
+      class="feedback-card" 
+      *ngFor="let feedback of feedbacks; let i = index"
+      [ngClass]="{ active: i === currentFeedback }"
+    >
+    <div class="feedback-avatar">
+      <img [src]="feedback.avatar" [alt]="feedback.name">
+    </div>
+    
+      <div class="feedback-content">
+        <p>"{{ feedback.review }}"</p>
+        <div class="feedback-rating">
+          <span *ngFor="let _ of [].constructor(feedback.rating)">★</span>
+        </div>
+        <h4>{{ feedback.name }}</h4>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Navigation Buttons -->
+<div class="navigation-buttons">
+  <button
+    *ngFor="let slide of slides; let i = index"
+    (click)="goToSlide(i)"
+    [class.active]="i === currentSlide"
+  >
+    {{ i + 1 }}
+  </button>
+</div>

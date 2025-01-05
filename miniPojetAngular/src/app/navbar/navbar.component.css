@@ -1,0 +1,11 @@
+/* Fixe la hauteur et transitions */
+nav {
+    height: 64px; /* Valeur par défaut */
+  }
+  nav.h-12 {
+    height: 48px; /* Réduit la hauteur quand scrolled */
+  }
+  body {
+    padding-top: 64px; /* Espace en haut pour éviter chevauchement */
+  }
+  

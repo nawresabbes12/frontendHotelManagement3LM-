@@ -1,0 +1,87 @@
+<app-navbar></app-navbar>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet" />
+<div class="reservation-container">
+<div class="background-slideshow">
+  <div 
+    class="slide" 
+    *ngFor="let slide of slides; let i = index"
+    [ngClass]="{ active: i === currentSlide }"
+    [style.backgroundImage]="'url(' + slide.image + ')'"
+  >
+   
+  </div>
+</div>
+
+
+  <!-- Formulaire -->
+  <form class="reservation-form" (submit)="onReserve(); $event.preventDefault()">
+    <h2 class="form-title">Réserver une Chambre</h2>
+
+    <div class="form-group">
+      <label for="roomType">Type de chambre</label>
+      <select id="roomType" [(ngModel)]="reservation.roomType" name="roomType" required>
+        <option value="" disabled selected>Sélectionnez un type de chambre</option>
+        <option value="Single">Single</option>
+        <option value="Double">Double</option>
+        <option value="Suite">Suite</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="startDate">Date d'arrivée</label>
+      <input type="date" id="startDate" [(ngModel)]="reservation.startDate" name="startDate" required min="2024-01-01" />
+    </div>
+
+    <div class="form-group">
+      <label for="endDate">Date de départ</label>
+      <input type="date" id="endDate" [(ngModel)]="reservation.endDate" name="endDate" required min="2024-01-02" />
+    </div>
+
+    <div class="form-group">
+      <label for="numberOfPeople">Nombre de personnes</label>
+      <input type="number" id="numberOfPeople" [(ngModel)]="reservation.numberOfPeople" name="numberOfPeople" min="1" max="10" required placeholder="1-10 personnes" />
+    </div>
+    
+
+    <button type="submit" class="reservation-btn">Réserver</button>
+  </form>
+
+  <!-- Liste des réservations -->
+  <div class="reservations-list" *ngIf="reservations.length > 0">
+    <h2 class="reservations-title" style="font-size: 40px;"><b>Vos Réservations</b></h2>
+
+    <div class="table-responsive">
+      <table class="reservations-table">
+        <thead>
+          <tr>
+            <th>Type de Chambre</th>
+            <th>Date d'arrivée</th>
+            <th>Date de départ</th>
+            <th>Nombre de Personnes</th>
+            <th>Prix</th>
+            <th>Paiement </th>
+            <th>Annuler La réservation</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let reservation of reservations">
+            <td data-label="Type de Chambre">{{ reservation.roomType }}</td>
+            <td data-label="Date d'arrivée">{{ reservation.startDate }}</td>
+            <td data-label="Date de départ">{{ reservation.endDate }}</td>
+            <td data-label="Nombre de Personnes">{{ reservation.numberOfPeople }}</td>
+            <td data-label="Prix">{{ reservation.amount }}</td>
+            <td>
+               <a class="nav-link" (click)="confirmPayment(reservation.id)"  style="color: var(--dark-mahogany);">
+                 <i class="fas fa-credit-card"></i>Paiement</a>
+            </td>
+            <td>
+              <button (click)="cancelReservation(reservation.id)">Cancel</button>
+
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div> 
+  </div>
+
+</div>

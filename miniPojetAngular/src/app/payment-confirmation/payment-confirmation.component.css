@@ -1,0 +1,58 @@
+/* payment-confirmation.component.scss */
+.payment-confirmation {
+    padding: 20px;
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  
+    h1 {
+      margin-bottom: 20px;
+    }
+  
+    .reservation-details {
+      margin-bottom: 30px;
+  
+      h2 {
+        margin-bottom: 10px;
+      }
+  
+      p {
+        font-size: 14px;
+        margin: 5px 0;
+      }
+    }
+  
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+  
+      label {
+        font-weight: bold;
+      }
+  
+      input {
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+      }
+  
+      button {
+        padding: 10px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+  
+        &:hover {
+          background-color: #0056b3;
+        }
+      }
+    }
+  }
+  

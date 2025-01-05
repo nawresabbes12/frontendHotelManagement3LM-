@@ -1,0 +1,26 @@
+<app-navbar></app-navbar>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+<h1 class="contact-title">Nous Contacter</h1>
+    <p class="contact-subtitle">
+      Avez-vous une question ou une suggestion ? Nous sommes là pour vous écouter !
+    </p>
+<form [formGroup]="contactForm" (ngSubmit)="onSubmitContactForm()">
+  <input type="text" formControlName="name" placeholder="Votre nom" class="form-control" required>
+  <div [ngClass]="{'error': !contactForm.controls['name'].valid && contactForm.controls['name'].touched}">
+    <p *ngIf="contactForm.controls['name'].hasError('required')">nom est requis.</p>
+  </div>
+  <input type="email" formControlName="email" placeholder="Votre email" required>
+  <div [ngClass]="{'error': !contactForm.controls['email'].valid && contactForm.controls['email'].touched}">
+    <p *ngIf="contactForm.controls['email'].hasError('required')">Email est requis.</p>
+    <p *ngIf="contactForm.controls['email'].hasError('email')">Email non valide.</p>
+  </div>
+  <textarea formControlName="message" placeholder="Votre message" required></textarea>
+  <button type="submit" [disabled]="!contactForm.valid">Envoyer</button>
+
+  
+</form>
+<h1 class="contact-title">Localisation Exacte</h1>
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d609.9056210132551!2d10.5981423145129!3d35.85787977464887!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12fd8a6ac0dd6b73%3A0x3a7c2268934541aa!2sInstitut%20Sup%C3%A9rieur%20d&#39;Informatique%20et%20des%20Technologies%20de%20Communication!5e0!3m2!1sfr!2stn!4v1734108122600!5m2!1sfr!2stn" width="700" height="300" style="border:1; margin-left: 19%; ; margin-top: 5%;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+
+

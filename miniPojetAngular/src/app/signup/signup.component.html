@@ -1,0 +1,283 @@
+<app-navbar></app-navbar>
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inscription</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-gold: #D4AF37;
+            --deep-bronze: #8B7355;
+            --rich-cream: #F5DEB3;
+            --dark-mahogany: #4A3728;
+            --soft-ivory: #FFFFF0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: linear-gradient(135deg, var(--rich-cream) 0%, var(--soft-ivory) 100%);
+            line-height: 1.6;
+            color: var(--dark-mahogany);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            perspective: 1000px;
+            overflow: hidden;
+        }
+
+        .login-container {
+            width: 900px;
+            height: 600px;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 
+                0 30px 60px -10px rgba(0,0,0,0.2),
+                0 20px 40px -10px rgba(0,0,0,0.15);
+            display: flex;
+            overflow: hidden;
+            transition: transform 0.5s ease;
+        }
+
+        .login-container:hover {
+            transform: scale(1.015);
+        }
+
+        .login-visual {
+            flex: 1;
+            background: linear-gradient(135deg, var(--deep-bronze), var(--dark-mahogany));
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .login-visual::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                45deg, 
+                rgba(212, 175, 55, 0.1), 
+                rgba(139, 115, 85, 0.2)
+            );
+            opacity: 0.5;
+        }
+
+        .login-visual h1 {
+            font-family: 'Playfair Display', serif;
+            color: var(--primary-gold);
+            font-size: 2.5rem;
+            font-weight: 700;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+            z-index: 1;
+            letter-spacing: -1px;
+        }
+
+        .login-visual p {
+            color: var(--soft-ivory);
+            max-width: 300px;
+            text-align: center;
+            z-index: 1;
+            font-weight: 300;
+        }
+
+        .login-form {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 3rem;
+            background: white;
+            position: relative;
+        }
+
+        .login-form::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(to right, var(--primary-gold), var(--deep-bronze));
+        }
+
+        .form-title {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .form-title h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            color: var(--dark-mahogany);
+            margin-bottom: 0.5rem;
+        }
+
+        .form-title p {
+            color: var(--deep-bronze);
+            font-size: 0.875rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border: 1px solid var(--rich-cream);
+            border-radius: 8px;
+            background: var(--soft-ivory);
+            color: var(--dark-mahogany);
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus {
+            border-color: var(--primary-gold);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.2);
+        }
+
+        .form-group .input-icon {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--deep-bronze);
+            transition: color 0.3s ease;
+        }
+
+        .form-group input:focus + .input-icon {
+            color: var(--primary-gold);
+        }
+
+        .forgotten-password {
+            text-align: right;
+            margin-bottom: 1.5rem;
+        }
+
+        .forgotten-password a {
+            color: var(--deep-bronze);
+            text-decoration: none;
+            font-size: 0.875rem;
+            transition: color 0.3s ease;
+        }
+
+        .register-btn {
+            width: 100%;
+            padding: 0.875rem;
+            background: var(--primary-gold);
+            color: var(--dark-mahogany);
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .register-btn:hover {
+            background: var(--deep-bronze);
+            color: var(--soft-ivory);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        .login-link {
+            text-align: center;
+            margin-top: 1.5rem;
+            color: var(--deep-bronze);
+        }
+
+        .login-link a {
+            color: var(--primary-gold);
+            font-weight: 600;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        @media (max-width: 768px) {
+            .login-container {
+                flex-direction: column;
+                width: 95%;
+                height: auto;
+            }
+
+            .login-visual, .login-form {
+                flex: none;
+                width: 100%;
+                padding: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <div class="login-visual">
+            <h1>Inscription</h1>
+            <p>Créez votre compte en quelques étapes simples</p>
+        </div>
+        <div class="login-form">
+            <div class="form-title">
+                <h2>Créer un compte</h2>
+                <p>Entrez vos informations personnelles</p>
+            </div>
+            <form id="registerForm" novalidate (ngSubmit)="onSubmit()">
+                <div class="form-group">
+                    <input 
+                        id="name" [(ngModel)]="user.firstName"    
+                        type="text"
+                        placeholder="Entrez votre nom"
+                        name="name"
+                        required>
+                    <i class="fas fa-user input-icon"></i>
+                </div>
+                <div class="form-group">
+                    <input 
+                        id="email" [(ngModel)]="user.email"    
+                        type="email"
+                        placeholder="Entrez votre email"
+                        name="email"
+                        required 
+                        pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"> 
+                    <i class="fas fa-envelope input-icon"></i>
+                </div>
+                <div class="form-group">
+                    <input 
+                        id="password" [(ngModel)]="user.password" 
+                        type="password" name="password"
+                        placeholder="Créez un mot de passe"
+                        required minlength="8">  
+                    <i class="fas fa-lock input-icon"></i>
+                </div>
+                <button type="submit" class="register-btn">S'inscrire</button>
+            </form>
+            <p class="login-link">
+                Déjà inscrit ? 
+                <a href="/login">Connectez-vous ici</a>
+            </p>
+        </div>
+    </div>
+</body>
+</html>

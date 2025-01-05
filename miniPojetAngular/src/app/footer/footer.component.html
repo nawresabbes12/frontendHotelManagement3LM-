@@ -1,0 +1,49 @@
+<footer>
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+    <div class="text-center md:text-left">
+      <h3 class="text-xl font-bold mb-2 text-[#8B7355]">Hôtel</h3>
+      <p class="text-[#6F5C3E] text-xs">Votre destination de luxe pour des séjours inoubliables</p>
+    </div>
+    <div class="text-center hidden md:block">
+      <h4 class="text-lg font-semibold mb-2 text-[#8B7355]">Liens Rapides</h4>
+      <nav class="space-y-1">
+        <a href="#" class="block text-[#6F5C3E] text-xs hover:text-[#4A4238] transition-colors">Accueil</a>
+        <a href="#" class="block text-[#6F5C3E] text-xs hover:text-[#4A4238] transition-colors">Chambres</a>
+        <a href="#" class="block text-[#6F5C3E] text-xs hover:text-[#4A4238] transition-colors">Réservations</a>
+        <a href="#" class="block text-[#6F5C3E] text-xs hover:text-[#4A4238] transition-colors">Contact</a>
+      </nav>
+    </div>
+    <div class="text-center md:text-right">
+      <h4 class="text-lg font-semibold mb-2 text-[#8B7355]">Suivez-nous</h4>
+      <div class="flex justify-center md:justify-end space-x-4">
+        <a href="https://www.facebook.com/" target="_blank" class="text-[#6F5C3E] hover:text-[#4A4238] transition-transform hover:scale-110">
+          <i class="fa-brands fa-facebook text-xl"></i>
+        </a>
+        <a href="https://www.instagram.com/" target="_blank" class="text-[#6F5C3E] hover:text-[#4A4238] transition-transform hover:scale-110">
+          <i class="fa-brands fa-instagram text-xl"></i>
+        </a>
+        <a href="https://www.linkedin.com/" target="_blank" class="text-[#6F5C3E] hover:text-[#4A4238] transition-transform hover:scale-110">
+          <i class="fa-brands fa-linkedin text-xl"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="text-center mt-2 pt-2 border-t border-[#D2B48C]">
+    <p class="text-xs text-[#6F5C3E]">© 2024 Hôtel - Tous droits réservés</p>
+  </div>
+</footer>
+
+<script>
+  window.onscroll = function() {
+    var footer = document.querySelector('footer');
+    var scrollPosition = window.scrollY + window.innerHeight;
+    var pageHeight = document.body.scrollHeight;
+
+    if (scrollPosition >= pageHeight) {
+      footer.classList.add('show-footer');
+    } else {
+      footer.classList.remove('show-footer');
+    }
+  };
+</script>

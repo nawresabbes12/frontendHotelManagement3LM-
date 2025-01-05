@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "@angular/common": "^19.0.1"
+  }
+}

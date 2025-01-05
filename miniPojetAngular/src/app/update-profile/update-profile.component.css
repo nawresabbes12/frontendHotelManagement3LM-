@@ -1,0 +1,198 @@
+:root {
+    --gradient-primary: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+    --gradient-secondary: linear-gradient(135deg, #ff7eb3, #ff758c);
+    --color-background: #f9fbfc;
+    --color-text-dark: #1c2833;
+    --color-text-light: #8e9aa7;
+    --color-white: #ffffff;
+    --shadow-elegant: 0 12px 24px rgba(0, 0, 0, 0.1);
+    --border-radius: 12px;
+  }
+  
+  body {
+    background-color: var(--color-background);
+    font-family: 'Roboto', sans-serif;
+  }
+  
+  .update-profile-container {
+    max-width: 500px;
+    margin: 3rem auto;
+    padding: 3rem;
+    background: var(--color-white);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-elegant);
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .update-profile-container:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 16px 32px rgba(0, 0, 0, 0.15);
+  }
+  
+  .update-profile-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 8px;
+    background: var(--gradient-primary);
+  }
+  
+  .update-profile-container h2 {
+    text-align: center;
+    color: var(--color-text-dark);
+    margin-bottom: 2.5rem;
+    font-size: 2rem;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+  }
+  
+  .update-profile-container h2::after {
+    content: '';
+    position: absolute;
+    bottom: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 70px;
+    height: 4px;
+    background: var(--gradient-secondary);
+    border-radius: 2px;
+  }
+  
+  .update-profile-container label {
+    display: block;
+    margin-bottom: 0.75rem;
+    color: var(--color-text-light);
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: color 0.3s ease;
+  }
+  
+  .update-profile-container input {
+    width: 100%;
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+    border: 1px solid #dde2e8;
+    border-radius: var(--border-radius);
+    background-color: #f4f7f9;
+    color: var(--color-text-dark);
+    font-size: 0.95rem;
+    transition: 
+      border-color 0.3s ease, 
+      box-shadow 0.3s ease,
+      transform 0.2s ease;
+  }
+  
+  .update-profile-container input:focus {
+    outline: none;
+    border-color: #6a11cb;
+    box-shadow: 0 0 8px rgba(106, 17, 203, 0.2);
+    transform: translateY(-3px);
+  }
+  
+  .update-profile-container button {
+    display: block;
+    width: 100%;
+    padding: 1rem;
+    background: var(--gradient-primary);
+    color: var(--color-white);
+    border: none;
+    border-radius: var(--border-radius);
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    letter-spacing: 0.5px;
+    transition: 
+      transform 0.3s ease,
+      box-shadow 0.3s ease;
+  }
+  
+  .update-profile-container button:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 24px rgba(106, 17, 203, 0.25);
+  }
+  
+  .update-profile-container button:active {
+    transform: translateY(-2px);
+  }
+  
+  @media (max-width: 480px) {
+    .update-profile-container {
+      margin: 1.5rem;
+      padding: 2rem;
+      border-radius: 10px;
+    }
+  
+    .update-profile-container h2 {
+      font-size: 1.8rem;
+    }
+  
+    .update-profile-container input {
+      font-size: 0.9rem;
+      padding: 0.85rem;
+    }
+  
+    .update-profile-container button {
+      font-size: 1rem;
+      padding: 0.9rem;
+    }
+  }
+  .update-profile-container {
+    max-width: 600px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    font-family: 'Roboto', sans-serif;
+  }
+  
+  .update-profile-container h2 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    color: #2d3748;
+  }
+  
+  .update-profile-container label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+    color: #4a5568;
+  }
+  
+  .update-profile-container input {
+    width: 100%;
+    padding: 0.8rem;
+    margin-bottom: 1rem;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border 0.3s ease;
+  }
+  
+  .update-profile-container input:focus {
+    border-color: #2b362c;
+    outline: none;
+  }
+  
+  .update-profile-container .btn {
+    display: block;
+    width: 100%;
+    padding: 0.8rem;
+    background: #66644eb7;
+    color: #ffffff;
+    font-size: 1rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  
+  .update-profile-container .btn:hover {
+    background: #5a5a4eb7;
+  }
+    

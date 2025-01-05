@@ -1,0 +1,56 @@
+<app-navbar></app-navbar>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+<div class="background-slideshow">
+  <div 
+    class="slide" 
+    *ngFor="let slide of slides; let i = index"
+    [ngClass]="{ active: i === currentSlide }"
+    [style.backgroundImage]="'url(' + slide.image + ')'"
+    (click)="goToSlide(i)" 
+  >
+    <div class="slide-overlay">
+      <h2>{{ slide.title }}</h2>
+    </div>
+  </div>
+</div>
+
+<div class="container mt-4">
+  <div class="row">
+    <h1 style=" text-align: center ; font-size: 50px;"> <b>Bienvenue dans notre Catalogue </b></h1>
+    <!-- Room List -->
+    <div class="col-md-9">
+      <div class="room-list">
+        <div class="row">
+          <div class="col-md-4" *ngFor="let room of filteredRooms">
+            <div class="card" [routerLink]="['/rooms', room.id]">
+              
+              <img [src]="room.image" class="card-img-top" [alt]="room.title">
+              
+              
+              <div class="card-body">
+                <h5 class="card-title">{{ room.title }}</h5>
+                <p class="card-text">{{ room.description }}</p>
+                
+                <p class="card-text">Capacity: {{ room.capacity }} persons</p>
+                <p class="card-text">Price: {{ room.price }} €/night</p>
+                <div class="room-rating">
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                </div>
+                <br>
+               
+                
+                <button (click)="confirmBooking(room)" class="btn btn-primary">Confirm Booking</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
